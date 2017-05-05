@@ -28,7 +28,7 @@ foreach ($jsonData as $id=>$row) {
             '".strip_quotes($value['category']['attributes']['label'])."',
             '".strip_quotes($value['im:releaseDate']['label'])."',
             '".strip_quotes($value['im:image']['2']['label'])."',
-            '".strip_quotes(1)."');" . "\n";
+            '".strip_quotes(true)."');" . "\n";
         }
 
 }

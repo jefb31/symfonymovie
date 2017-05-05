@@ -21,18 +21,6 @@ class FilmsController extends Controller
         return $this->render('films/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR
         ]);
-
-
-        $jsonFile = file_get_contents("../var/data/films.json", FILE_USE_INCLUDE_PATH);
-	      $jsonData = json_decode($jsonFile, true);
-        $films = $jsonData["feed"]["entry"];
-        // var_dump($films);
- 
-        foreach($films as $key => $value) {
-            echo '<br>'.$key.' <br>';
-            echo $value['im:name']['label'];         
-        }
-
     }
     
 

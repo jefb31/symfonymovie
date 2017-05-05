@@ -1,10 +1,54 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        
-    </head>
-    <body>
-       <h1>listing</h1>
-    </body>
-</html>
+{% extends 'base.html.twig' %} 
+
+{% block body %}
+
+<h1>listing</h1>
+
+<table class="ui compact celled definition table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>N°</th>
+            <th>Titre</th>
+            <th>Synopsis</th>
+            <th>Durée</th>
+            <th>Réalisateur</th>
+            <th>Catégorie</th>
+            <th>Date sortie</th>
+            <th>Image</th>
+            <th>Disponibilité</th>
+        </tr>
+    </thead>
+    <tbody>
+     {% for key in films %}
+        <tr>
+            <td class="collapsing">
+                <div class="ui fitted slider checkbox">
+                    <input type="checkbox"> <label></label>
+                </div>
+            </td>
+            <td>{{ key.id|e }}</td>
+            <td>{{ key.title|e }}</td>
+            <td>{{ key.summary|e }}</td>
+            <td>{{ key.duration|e }}</td>
+            <td>{{ key.director|e }}</td>
+            <td>{{ key.category|e }}</td>
+            <td>{{ key.releaseDate|date('d/m/Y')}}</td>
+            <td><img src="{{ key.poster|e }}" alt="" /></td>
+            <td>{{ key.available|e }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot class="full-width">
+        <tr>
+            <th></th>
+            <th colspan="10">
+                <div class="ui right floated small primary labeled icon button"><i class="user icon"></i> Add User </div>
+                <div class="ui small button">Approve </div>
+                <div class="ui small  disabled button">Approve All </div>
+            </th>
+        </tr>
+    </tfoot>
+</table>
+
+{% endblock %}

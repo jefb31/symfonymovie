@@ -36,9 +36,9 @@ class Films
     private $summary;
 
     /**
-     * @var \DateTime
+     * @var int
      *
-     * @ORM\Column(name="duration", type="datetime")
+     * @ORM\Column(name="duration", type="integer")
      */
     private $duration;
 
