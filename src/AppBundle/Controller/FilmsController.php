@@ -24,8 +24,6 @@ class FilmsController extends Controller
     }
     
 
-
-
 	/**
      * @Route("/films", name="films")
      */
@@ -35,6 +33,20 @@ class FilmsController extends Controller
       // find *all* todo items
       $films = $repository->findAll();
       return $this->render('films/list.html.twig', array(
+        'films' => $films,
+      ));
+    }
+
+
+    	/**
+     * @Route("/create", name="create")
+     */
+    public function createFilmsListAction(Request $request)
+    {
+      $repository = $this->getDoctrine()->getRepository('AppBundle:Films');
+      // find *all* todo items
+      $films = $repository->findAll();
+      return $this->render('films/form.html.twig', array(
         'films' => $films,
       ));
     }
